@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./TaskCard.css";
+// import "./TaskCard.css";
 
 
 interface TaskProps{

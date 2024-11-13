@@ -1,6 +1,7 @@
 // import TaskApp from "./TaskApp";
 
-import Task from "./Task"
+import React from "react";
+import TaskList from "./TaskList";
 
 
 
@@ -8,7 +9,7 @@ import Task from "./Task"
 function App() {
   return (
     <div className="App">
-      <Task title='Pay rent'/>
+        <TaskList />
     </div>);
 }
 
