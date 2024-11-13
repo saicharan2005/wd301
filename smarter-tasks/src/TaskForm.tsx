@@ -4,18 +4,20 @@ interface TaskFormProps {
 }
 interface TaskFormState {
 }
+
 class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   constructor(props: TaskFormProps) {
     super(props);
   }
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log("Submitted the form!");
+    console.log(`Submitted the form with ${this.inputRef.current?.value}`);
   };
+  inputRef = React.createRef<HTMLInputElement>();
   render(){
     return (
       <form onSubmit={this.addTask}>
-  <input type="text" />
+  <input type="text" ref={this.inputRef} />
   <button type="submit">Add item</button>
 </form>
     )
