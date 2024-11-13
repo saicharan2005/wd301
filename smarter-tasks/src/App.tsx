@@ -1,14 +1,16 @@
-import TaskForm from "./TaskForm";
-import TaskList from "./TaskList";
+// import TaskApp from "./TaskApp";
+
+import Task from "./Task"
 
 
-function App(){
-  return(
-    <div>
-      <TaskForm/>
-      <TaskList tasks={[]}/>
-    </div>
-  )
+
+
+function App() {
+  return (
+    <div className="App">
+      <Task title='Pay rent'/>
+    </div>);
 }
+
 
 export default App;

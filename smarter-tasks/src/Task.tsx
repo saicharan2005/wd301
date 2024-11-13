@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./TaskCard.css";
+
 
 interface TaskProps{
   title:string;
@@ -7,9 +9,12 @@ interface TaskProps{
 
 
 
-class Task extends React.Component<TaskProps>{
-  render(){
-    return <div className="text-lg text-center bg-sky-500">{this.props.title}</div>
+
+
+class Task extends React.Component<TaskProps> {
+  render() {
+    return (
+      <div>{this.props.title} </div>)
   }
 }
 
