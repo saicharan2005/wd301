@@ -1,6 +1,7 @@
 // import TaskApp from "./TaskApp";
 
 import React from "react";
+import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 
 
@@ -9,7 +10,8 @@ import TaskList from "./TaskList";
 function App() {
   return (
     <div className="App">
-        <TaskList />
+        <TaskForm/>
+        <TaskList tasks={[]}/>
     </div>);
 }
 

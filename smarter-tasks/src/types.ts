@@ -1,7 +1,4 @@
 
-interface TaskItem{
-  title:string;
+export interface TaskItem {
+  title: string;
 }
-
-
-export default TaskItem;
