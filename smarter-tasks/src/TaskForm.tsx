@@ -1,6 +1,7 @@
 import React from "react";
+import { TaskItem } from "./types";
 interface TaskFormProps {
-  
+  addTask: (task: TaskItem) => void;
 }
 interface TaskFormState {
   title: string;
@@ -15,8 +16,12 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   }
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log(`Submitted the form with ${this.state.title}`);
-  };
+    const newTask = {
+      title: this.state.title,
+    };
+    this.props.addTask(newTask);
+    this.setState({ title: "" });
+  }
 
   titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
