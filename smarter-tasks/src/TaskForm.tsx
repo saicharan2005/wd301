@@ -3,11 +3,14 @@ import { TaskItem } from "./types";
 
 interface TaskFormProps {
   addTask: (task: TaskItem) => void;
+  
 }
 interface TaskFormState {
   title: string;
   description:string;
   dueDate:string;
+  
+  
 }
 
 
@@ -40,26 +43,32 @@ interface TaskFormState {
 
 
 
-   const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
-        event.preventDefault();
-        console.log("submiter form with ");
-        if(formState.title.length ===0 || formState.dueDate.length===0){
-          return;
-        }
+  //  const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
+  //       event.preventDefault();
+  //       console.log("submiter form with ");
+  //       if(formState.title.length ===0 || formState.dueDate.length===0){
+  //         return;
+  //       }
         
-        props.addTask(formState);
-        setFormState({ title: "",description:"",dueDate:"" });
-      }
+  //       props.addTask(formState);
+  //       setFormState({ title: "",description:"",dueDate:"" });
+  //     }
 
 
-
+      const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (formState.title.trim() && formState.dueDate.trim()) {
+          props.addTask(formState); // Call the addTask function passed from TaskApp
+          setFormState({ title: "", description: "", dueDate: "" }); // Reset form fields
+        }
+      };
 
 
 
 
     return(
     <>
-    <form onSubmit={addTask}>
+    <form onSubmit={handleSubmit}>
     <div className="grid md:grid-cols-4 md:gap-3">
       {/* title */}
       <div className="relative z-0 w-full mb-6 group">
@@ -121,6 +130,7 @@ interface TaskFormState {
       </div>
       <div className="relative z-0 w-full mb-6 group">
         <button
+            id="addTaskButton"
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >

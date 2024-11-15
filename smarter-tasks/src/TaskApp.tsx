@@ -8,12 +8,12 @@ interface TaskAppState {
   tasks: TaskItem[];
 }
 
-
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 
 
 const TaskApp = () => {
-  const [taskAppState, setTaskAppState] = React.useState<TaskAppState>({
+  const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>("tasks", {
     tasks: [],
   });
 
@@ -24,6 +24,12 @@ const TaskApp = () => {
   
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
+  };
+
+  const deleteTask = (index: number) => {
+    const updatedTasks = [...taskAppState.tasks];
+    updatedTasks.splice(index, 1);
+    setTaskAppState({ tasks: updatedTasks });
   };
   return (
     <div className="container py-10 max-w-4xl mx-auto">
@@ -40,7 +46,7 @@ const TaskApp = () => {
             Pending
           </h1>
           <TaskForm addTask={addTask} />
-          <TaskList tasks={taskAppState.tasks} />
+          <TaskList tasks={taskAppState.tasks }  onDelete={deleteTask}/>
         </div>
       </div>
     </div>

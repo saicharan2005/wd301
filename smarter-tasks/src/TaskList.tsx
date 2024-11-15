@@ -4,6 +4,8 @@ import { TaskItem } from "./types";
 
 interface Props {
   tasks: TaskItem[];
+  onDelete: (index: number) => void;
+  
 }
 
 
@@ -26,6 +28,7 @@ const TaskList = (props: Props) => {
       title={task.title}
       description={task.description}
       dueDate={task.dueDate}
+      onDelete={() => props.onDelete(idx)}
     />
   ));
   return <>{list}</>;
@@ -33,3 +36,5 @@ const TaskList = (props: Props) => {
 
 
 export default TaskList;
+
+
