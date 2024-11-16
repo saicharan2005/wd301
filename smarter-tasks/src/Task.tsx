@@ -5,6 +5,7 @@ import { TaskItem } from "./types";
 
 
 interface TaskProps extends TaskItem {
+  id:string;
   onDelete: () => void; // Function to handle deletion
 }
 
@@ -15,7 +16,9 @@ interface TaskProps extends TaskItem {
   return (
     <li className="TaskItem shadow-md border border-slate-100 flex justify-between items-center">
     <div className="TaskItem shadow-md border border-slate-100">
-      <h2 className="text-base font-bold my-1">{props.title}</h2>
+    <a href={`/tasks/${props.id || ""}`}>
+            <h2 className="text-base font-bold my-1">{props.title}</h2>
+          </a>
       <p className="text-sm text-slate-500">{props.dueDate}</p>
       <p className="text-sm text-slate-500">
         Description: {props.description}

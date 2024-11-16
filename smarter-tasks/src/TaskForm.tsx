@@ -6,6 +6,7 @@ interface TaskFormProps {
   
 }
 interface TaskFormState {
+  id:string
   title: string;
   description:string;
   dueDate:string;
@@ -19,6 +20,7 @@ interface TaskFormState {
 
  const TaskForm =(props:TaskFormProps)=>{
   const [formState, setFormState] = React.useState<TaskFormState>({
+    id:"",
     title: "",
     description: "",
     dueDate: "",
@@ -57,9 +59,10 @@ interface TaskFormState {
 
       const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        formState.id=`${Date.now()}`;
         if (formState.title.trim() && formState.dueDate.trim()) {
           props.addTask(formState); // Call the addTask function passed from TaskApp
-          setFormState({ title: "", description: "", dueDate: "" }); // Reset form fields
+          setFormState({id:"", title: "", description: "", dueDate: "" }); // Reset form fields
         }
       };
 
