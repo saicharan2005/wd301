@@ -4,6 +4,7 @@ import React from "react";
 
 import {
   createBrowserRouter,
+
   Navigate,
   RouterProvider,
 } from "react-router-dom";
@@ -20,6 +21,8 @@ import NotFound from "./pages/NotFound";
 
 
 import ReactPlayground from './ ReactPlayground';
+
+import Form from './Form';
 
 
 const router = createBrowserRouter([
@@ -69,6 +72,7 @@ function App() {
   return (
     <>
     <ReactPlayground />
+    <Form/>
     <RouterProvider router={router} />
     </>
   )
