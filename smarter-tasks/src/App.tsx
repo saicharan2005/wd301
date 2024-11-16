@@ -19,6 +19,9 @@ import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 
+import ReactPlayground from './ ReactPlayground';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,7 +67,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
+    <>
+    <ReactPlayground />
     <RouterProvider router={router} />
+    </>
   )
 }
 
