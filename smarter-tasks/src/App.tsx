@@ -16,6 +16,7 @@ import TaskDetailsPage from "./pages/TaskDetailsPage";
 import Signin from "./pages/Signin";
 
 import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "./pages/NotFound";
 
 
 const router = createBrowserRouter([
@@ -48,7 +49,15 @@ const router = createBrowserRouter([
         element: (<TaskDetailsPage />)
       },
     ]
-  }
+  }, 
+  {
+    path: "/notfound",
+    element: <NotFound />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/notfound" replace />,
+  },
 ]);
 
 
