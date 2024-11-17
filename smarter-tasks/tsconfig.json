@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
     "target": "es5",
@@ -9,6 +11,9 @@
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true
+   
+    
   },
   "include": ["src"]
+  
 }
