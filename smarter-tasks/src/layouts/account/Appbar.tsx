@@ -16,6 +16,7 @@ const classNames = (...classes: string[]): string => classes.filter(Boolean).joi
 
 const Appbar = () => {
   const { pathname } = useLocation()
+  
   const { theme, setTheme } = useContext(ThemeContext)
   const [enabled, setEnabled] = useState(theme === 'dark')
 
@@ -78,7 +79,7 @@ const Appbar = () => {
 
                 <Switch
             checked={enabled}
-            onChange={setEnabled}
+            onChange={toggleTheme}
             className={`${enabled ? 'bg-slate-400' : 'bg-slate-700'}
               relative inline-flex h-[24px] w-[100px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
           >

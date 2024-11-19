@@ -51,7 +51,7 @@ var Appbar = function () {
                             })))),
                     React.createElement("div", { className: "hidden md:block" },
                         React.createElement("div", { className: "ml-4 flex items-center md:ml-6" },
-                            React.createElement(Switch, { checked: enabled, onChange: setEnabled, className: "".concat(enabled ? 'bg-slate-400' : 'bg-slate-700', "\n              relative inline-flex h-[24px] w-[100px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75") },
+                            React.createElement(Switch, { checked: enabled, onChange: toggleTheme, className: "".concat(enabled ? 'bg-slate-400' : 'bg-slate-700', "\n              relative inline-flex h-[24px] w-[100px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75") },
                                 React.createElement("span", { "aria-hidden": "true", className: "".concat(enabled ? 'translate-x-9' : 'translate-x-0', "\n                pointer-events-none inline-block h-[16px] w-[16px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out") })),
                             React.createElement(Menu, { as: "div", className: "relative ml-3" },
                                 React.createElement("div", null,
