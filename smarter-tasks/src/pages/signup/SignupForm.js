@@ -37,7 +37,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 // src/pages/signup/SignupForm.tsx
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
+import { useNavigate } from 'react-router-dom';
 var SignupForm = function () {
+    var navigate = useNavigate();
     var _a = useState(''), organisationName = _a[0], setOrganisationName = _a[1];
     var _b = useState(''), userName = _b[0], setUserName = _b[1];
     var _c = useState(''), userEmail = _c[0], setUserEmail = _c[1];
@@ -70,6 +72,7 @@ var SignupForm = function () {
                     // Dialogue: After successful signup we have to redirect the user to the secured page. We will do that later.
                     // if successful, save the user info in localStorage
                     localStorage.setItem('userData', JSON.stringify(data.user));
+                    navigate("/account");
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _a.sent();

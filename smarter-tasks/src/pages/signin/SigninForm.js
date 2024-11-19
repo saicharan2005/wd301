@@ -71,7 +71,7 @@ var SigninForm = function () {
                     localStorage.setItem('userData', JSON.stringify(data.user));
                     // After successful signin we have to redirect the user to the secured page. We will do that later.
                     // Redirect to dashboard
-                    navigate('/dashboard');
+                    navigate("/account");
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _a.sent();

@@ -1,39 +1,12 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-import NotFound from "./pages/NotFound";
-import Signup from "./pages/signup";
-import Signin from "./pages/signin";
-import Dashboard from "./pages/dashboard";
-import ProtectedRoute from "./ProtectedRoute";
-var router = createBrowserRouter([
-    {
-        path: "/",
-        element: React.createElement(Signup, null),
-    },
-    {
-        path: "/signup",
-        element: React.createElement(Signup, null),
-    },
-    {
-        path: "/signin",
-        element: React.createElement(Signin, null),
-    },
-    {
-        path: "/notfound",
-        element: React.createElement(NotFound, null),
-    },
-    {
-        path: "/dashboard",
-        element: (React.createElement(ProtectedRoute, null,
-            React.createElement(Dashboard, null))),
-    },
-    {
-        path: "*",
-        element: React.createElement(NotFound, null),
-    },
-]);
-function App() {
-    return (React.createElement(React.Fragment, null,
+import React, { useContext } from "react";
+import { RouterProvider } from "react-router-dom";
+import { ThemeContext } from "./context/theme";
+import router from "./routes";
+var App = function () {
+    var currentTheme = useContext(ThemeContext);
+    var theme = useContext(ThemeContext).theme;
+    return (React.createElement("div", { className: "h-screen w-full mx-auto py-2 ".concat(theme === "dark" ? "dark" : "") },
+        theme,
         React.createElement(RouterProvider, { router: router })));
-}
+};
 export default App;
