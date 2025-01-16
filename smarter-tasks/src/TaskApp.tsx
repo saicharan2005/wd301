@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 // import React from "react";
 // import { TaskItem } from "./types";
 // import TaskForm from "./TaskForm";
 // import TaskList from "./TaskList";
 
 
-// // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+
 // interface TaskAppProp {}
 // interface TaskAppState {
 //   tasks: TaskItem[];
@@ -58,8 +58,8 @@ import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface TaskAppProp {}
+
+// interface TaskAppProp {}
 interface TaskAppState {
   tasks: TaskItem[];
 }
