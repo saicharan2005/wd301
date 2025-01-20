@@ -36,8 +36,7 @@ const Dashboard: React.FC = () => {
             onClick={handleLogout} // Call the logout function on click
             className="mt-6 text-red-500 hover:text-red-600 font-semibold"
           >
-            Logout
-          </a>
+            Logout</a>
       </div>
     </div>
   );

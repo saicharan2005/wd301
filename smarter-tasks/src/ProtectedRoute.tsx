@@ -6,6 +6,7 @@ export default function ProtectedRoute({ children }: { children: JSX.Element }) 
   if (authenticated) {
     return <>{children}</>;
   } else {
-    return <Navigate to="/signin" />;
+    return 
+    <Navigate to="/signin" />;
  }
 }
