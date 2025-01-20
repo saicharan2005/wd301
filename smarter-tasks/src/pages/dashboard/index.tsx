@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
 
       <div className="text-center">
         <p className="text-lg text-gray-700">
-          Welcome, <strong>{user.name}</strong>!
+        <strong>{user.name}</strong>!
         </p>
         <p className="text-lg text-gray-700">Email: {user.email}</p>
         {/* Logout Link */}
