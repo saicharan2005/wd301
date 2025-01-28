@@ -90,7 +90,7 @@ const App = () => {
         theme === "dark" ? "dark" : ""
       }`}
     >
-      {theme}
+      
       <ProjectsProvider>
         <MembersProvider>
           <RouterProvider router={router} />
