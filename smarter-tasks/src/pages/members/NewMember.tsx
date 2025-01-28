@@ -4,8 +4,11 @@
 
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from "react";
-import { API_ENDPOINT } from "../../config/constants";
+
 import { useForm, SubmitHandler } from "react-hook-form";
+// First I'll import the addProject function
+import { addMember } from '../../context/members/actions';
+import { useMembersDispatch } from '../../context/members/context';
 
 type Inputs = {
     name: string;
@@ -14,15 +17,21 @@ type Inputs = {
 };
 
 
+
 const NewMember = () => {
 // Then we will use useState hook to handle local state for dialog component
 
-    const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState(null);
+  
+   const dispatchMembers= useMembersDispatch();
+   
     const {
       register,
       handleSubmit,
       formState: { errors },
     } = useForm<Inputs>();
+  
     
     // Then we add the openModal function. 
 // If you don't know, Modal and Dialog are almost same thing.
@@ -45,37 +54,18 @@ const NewMember = () => {
       // event.preventDefault();
       
 
-       const { name,email,password } = data;
-    const token = localStorage.getItem("authToken") ?? "";
-    try {
-      const response = await fetch(`${API_ENDPOINT}/users`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
-      // If response is not OK, in that case I'll throw an error.
+    const { name, email, password } = data;
+    
+    const response = await addMember(dispatchMembers, { name,email,password });
 
-      if (!response.ok) {
-        throw new Error("Failed to create project");
-      }
-      // Next, I'll extract the response body as JSON data
-
-      const data = await response.json();
-
-      // Let's print the data in console
-
-      console.log(data);
-      setIsOpen(false);
-    } catch (error) {
-      // And in catch block, I'll print the error in console.
-
-      console.error("Operation failed:", error);
+    if (response.ok) {
+      setIsOpen(false)
+    } else {
+          setError(response.error as React.SetStateAction<null>)
     }
-  };
+  }
 
+    
 
     
   return (
@@ -120,9 +110,10 @@ const NewMember = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
+                      {error && <span>{error}</span>}
                       <input
                         type="text"
-                        required
+                 
                         placeholder="Enter member name..."
                         autoFocus
                         id="name"

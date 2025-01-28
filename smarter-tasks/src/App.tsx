@@ -1,5 +1,3 @@
-
-
 // import './App.css'
 
 // import {
@@ -22,7 +20,6 @@
 
 // import Header from './components/Header';
 
-
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -37,7 +34,7 @@
 //       <ProtectedRoute>
 //         <Layout />
 //       </ProtectedRoute>
-      
+
 //     ),
 //     children: [
 //       {
@@ -52,7 +49,7 @@
 //         element: (<TaskDetailsPage />)
 //       }
 //     ]
-//   }, 
+//   },
 //   {
 //     path: "/notfound",
 //     element: <Notfound />, // Assign the NotFound component to the route
@@ -65,15 +62,14 @@
 
 // function App() {
 //   return (
-//     <> 
+//     <>
 //     {/* <ReactPlayground/> */}
 //     <Header/>
 //     <Form />
 //     <RouterProvider router={router} />
 //     </>
-   
+
 //   );
-  
 
 // }
 
@@ -81,12 +77,13 @@
 
 import { useContext } from "react";
 import { RouterProvider } from "react-router-dom";
-import router from "./routes"
+import router from "./routes";
 import { ThemeContext } from "./context/theme";
 import { ProjectsProvider } from "./context/projects/context";
+import { MembersProvider } from "./context/members/context";
 
 const App = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   return (
     <div
       className={`h-screen w-full mx-auto py-2 ${
@@ -95,9 +92,11 @@ const App = () => {
     >
       {theme}
       <ProjectsProvider>
-        <RouterProvider router={router} />
+        <MembersProvider>
+          <RouterProvider router={router} />
+        </MembersProvider>
       </ProjectsProvider>
     </div>
   );
-}
+};
 export default App;
